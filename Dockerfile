@@ -17,11 +17,10 @@ RUN apt-get update \
     locales \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN dpkg-reconfigure locales \
-  && locale-gen en_US.UTF-8
-
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+    locale-gen en_US.UTF-8 && \
+    dpkg-reconfigure locales && \
+    /usr/sbin/update-locale LANG=en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 RUN curl https://install.meteor.com/ | sh
