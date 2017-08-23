@@ -14,7 +14,15 @@ RUN apt-get update \
     build-essential \
     python \
     git \
+    locales \
 	&& rm -rf /var/lib/apt/lists/*
+
+RUN dpkg-reconfigure locales \
+  && locale-gen en_US.UTF-8
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN curl https://install.meteor.com/ | sh
 
