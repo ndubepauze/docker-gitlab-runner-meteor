@@ -1,4 +1,4 @@
-FROM node:4.8.4
+FROM node:8.9.1
 
 MAINTAINER Mitchell Bundy <mitch@bundy.ca>
 
