@@ -1,6 +1,6 @@
-FROM node:8.9.1
+FROM node:14.20
 
-MAINTAINER Mitchell Bundy <mitch@bundy.ca>
+MAINTAINER Nicolas Dube-Pauze <ndubepauze@rodeofx.com>
 
 RUN apt-get update \
   && apt-get upgrade -y \
